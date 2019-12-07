@@ -1,4 +1,4 @@
-The file `inventory` should contain the piblic IP address of the ec2 instance generated with terraform.
+The file `inventory` should contain the public IP address of the ec2 instance generated with terraform.
 Update file before running.
 
 The following files need to be updated with the correct domain name which you will be using:
