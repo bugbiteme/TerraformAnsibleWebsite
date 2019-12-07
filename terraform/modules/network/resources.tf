@@ -9,15 +9,15 @@ resource "aws_vpc" "vpc" {
   cidr_block = "${var.cidr_block_range}"
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags {
-    "Environment" = "${var.environment_tag}"
+  tags = {
+    environment = "${var.environment_tag}"
   }
 }
 
 resource "aws_internet_gateway" "igw" {
-  vpc_id = "${aws_vpc.vpc.id}"
-  tags {
-    "Environment" = "${var.environment_tag}"
+  vpc_id     = "${aws_vpc.vpc.id}"
+  tags         = {
+    environment = "${var.environment_tag}"
   }
 }
 
@@ -26,9 +26,9 @@ resource "aws_subnet" "subnet_public" {
   cidr_block = "${var.subnet1_cidr_block_range}"
   map_public_ip_on_launch = "true"
   availability_zone = "${var.availability_zone}"
-  tags {
-    "Environment" = "${var.environment_tag}"
-    "Type" = "Public"
+  tags = {
+    environment = "${var.environment_tag}"
+    type = "Public"
   }
 }
 
@@ -40,8 +40,8 @@ resource "aws_route_table" "rtb_public" {
       gateway_id = "${aws_internet_gateway.igw.id}"
   }
 
-  tags {
-    "Environment" = "${var.environment_tag}"
+  tags  = {
+    environment = "${var.environment_tag}"
   }
 }
 
