@@ -15,7 +15,7 @@ variable "subnet_public_id" {
 }
 variable "security_group_ids" {
   description = "EC2 ssh security group"
-  type = "list"
+  type = list
   default = []
 }
 variable "environment_tag" {
