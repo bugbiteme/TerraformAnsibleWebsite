@@ -4,6 +4,8 @@ In this project, we are creating a instance with webserver which serves static w
 
 ## Getting Started
 
+use ssh-keygen to create `d_rsa`  and `id_rsa.pub` in the default location `(~/.ssh)`
+
 First needs to run terraform with aws access key and secury key.
 
 Terraform commands:
