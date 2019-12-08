@@ -40,3 +40,4 @@ module "dnsModule" {
 		"www.miteshsharma.com miteshsharma.com"
 	]
 }
+
