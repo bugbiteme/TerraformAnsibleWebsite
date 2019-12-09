@@ -41,3 +41,13 @@ module "dnsModule" {
 	]
 }
 
+resource "null_resource" "ansible_playbook" {
+  
+  provisioner "local-exec" {
+    command = "sleep 2m"
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i ../ansible/inventory ../ansible/apache-playbook.yml  -e '{\"apache_test_message\":\"This was provisioned in  ${var.region}\"}'"
+  }
+}

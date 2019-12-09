@@ -24,3 +24,18 @@ resource "aws_eip" "testInstanceEip" {
     environment = "${var.environment_tag}"
   }
 }
+
+resource "null_resource" "output_eip" {
+
+  provisioner "local-exec" {
+    command = "echo [web] > ../ansible/inventory"
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_eip.testInstanceEip.public_ip} >> ../ansible/inventory"
+  }
+}
+
+output "testInstanceEip" {
+  value = aws_eip.testInstanceEip.public_ip
+}
