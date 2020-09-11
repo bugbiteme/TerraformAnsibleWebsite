@@ -34,10 +34,10 @@ module "dnsModule" {
 	region     	= "${var.region}"
 	domain_name	= "miteshsharma.com"
 	aRecords	= [
-		"leonlevy.com ${module.instanceModule.instance_eip}",
+		"leonslevy.com ${module.instanceModule.instance_eip}",
 	]
 	cnameRecords	= [
-		"www.leonlevy.com leonlevy.com"
+		"www.leonslevy.com leonslevy.com"
 	]
 }
 
